@@ -1,7 +1,13 @@
 # Payman Product Management Agent
 
-This Python application uses Flask to create a webhook endpoint for managing product feedback and prioritization tasks.
+This Python application uses Flask to create a webhook endpoint for managing product feedback and prioritization tasks. The agent automates the process of gathering user feedback on product features and generating prioritized roadmaps based on that feedback.
 
+## Key Features
+
+- Automatically generates relevant feedback questions based on the company and feature description
+- Creates tasks to collect user feedback with specified payouts
+- Processes completed feedback to create prioritized product roadmaps
+  
 ## Prerequisites
 
 - Python 3.8+
@@ -73,7 +79,15 @@ https://{your-ngrok-url}/webhook/task_completed
 
 ## Usage
 
-The application will now listen for webhook events from Payman. When a task is completed, it will process the feedback and generate a prioritized product roadmap.
+**1. To start a conversation and create a feedback task, use the following curl command (replace the user_input with your specific details):**
+
+```
+curl -X POST http://127.0.0.1:5000/start_conversation 
+-H "Content-Type: application/json" 
+-d '{
+"user_input": "Company Payman enables AI agents to pay humans for completing tasks. Our latest feature, Task Completer, streamlines task completion and payment for users, ensuring efficient and accurate task handling. Please generate feedback questions to gather user insights on the Task Completer feature. Create tasks to collect feedback from users with a payout of $200 for each completed feedback task. No specific emails should be assigned to these tasks."
+}'
+```
 
 ## Note
 

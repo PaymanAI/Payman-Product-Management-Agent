@@ -10,49 +10,66 @@ This Python application uses Flask to create a webhook endpoint for managing pro
 
 ## Setup
 
-1. Clone the repository:
+**1. Clone the repository:**
 
-   git clone `https://github.com/yourusername/PAYMAN_PRODUCT_MANAGEMENT_AGENT.git`
+```
+git clone `https://github.com/yourusername/PAYMAN_PRODUCT_MANAGEMENT_AGENT.git`
+```
 
-   `cd PAYMAN_PRODUCT_MANAGEMENT_AGENT`
+```
+cd PAYMAN_PRODUCT_MANAGEMENT_AGENT
+```
 
-2. Create a virtual environment and activate it:
+**2. Create a virtual environment and activate it:**
+```
+python -m venv venv
+```
 
-   `python -m venv venv`
+*Mac use*
 
-   Mac use
+```
+source venv/bin/activate
+```
 
-   `source venv/bin/activate`
+*Windows use*
 
-   Windows use
+```
+venv\Scripts\activate
+```
 
-   `venv\Scripts\activate`
+**3. Install the required packages:**
+```
+pip install -r requirements.txt
+```
 
-3. Install the required packages:
-
-   `pip install -r requirements.txt`
-
-4. Create a `.env` file in the root directory and add the following environment variables:
-
-`OPENAI_API_KEY=your_openai_api_key
+**4. Create a `.env` file in the root directory and add the following environment variables:**
+```
+OPENAI_API_KEY=your_openai_api_key
 PAYMAN_AGENT_ID=your_payman_agent_id
-PAYMAN_API_SECRET=your_payman_api_secret`
+PAYMAN_API_SECRET=your_payman_api_secret
+```
 
 ## Running the Application
 
-1. Start the Flask server:
-   `python agent.py`
-   Copy
-2. In a separate terminal, start ngrok to create a public URL for your local server:
-   `ngrok http 5000`
-   Copy
-3. Copy the ngrok URL (it should look like `https://something.ngrok.io`).
+**1. Start the Flask server:**
+```
+python agent.py
+```
+   
+**2. In a separate terminal, start ngrok to create a public URL for your local server:**
+```
+ngrok http 5000
+```
+   
+**3. Copy the ngrok URL (it should look like `https://something.ngrok.io`).**
 
-4. In the Payman agent settings, set the webhook URL to:
+**4. In the Payman agent settings, set the webhook URL to:**
+```
+https://{your-ngrok-url}/webhook/task_completed
+```
 
-`https://your-ngrok-url/webhook/task_completed`
-
-! Make sure your AI Agent has funds in test mode to spend
+> [!NOTE]
+> Make sure your AI Agent has funds in test mode to spend
 
 ## Usage
 
@@ -62,11 +79,3 @@ The application will now listen for webhook events from Payman. When a task is c
 
 Remember to keep your `.env` file secure and never commit it to version control. Add `.env` to your `.gitignore` file to prevent accidental commits.
 
-## License
-
-[MIT License](https://opensource.org/licenses/MIT)
-You can save this content directly as README.md in your project's root directory. Remember to replace "yourusername" with your actual GitHub username if you're hosting this on GitHub, and adjust any other details as necessary for your specific project setup.
-
-```
-
-```
